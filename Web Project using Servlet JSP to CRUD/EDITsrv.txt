@@ -1,0 +1,18 @@
+package com.crud;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class EditServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
+        try {
+            UserDAO.updateUser(id, name, email);
+            res.sendRedirect("list");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

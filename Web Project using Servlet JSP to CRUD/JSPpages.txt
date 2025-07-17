@@ -1,0 +1,25 @@
+<%@ page import="java.util.*, com.crud.User" %>
+<html>
+<head><title>User List</title></head>
+<body>
+<h2>User List</h2>
+<a href="add.jsp">Add New User</a>
+<table border="1">
+<tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
+<%
+    List<User> list = (List<User>) request.getAttribute("userList");
+    for (User u : list) {
+%>
+<tr>
+    <td><%= u.getId() %></td>
+    <td><%= u.getName() %></td>
+    <td><%= u.getEmail() %></td>
+    <td>
+        <a href="edit.jsp?id=<%= u.getId() %>">Edit</a>
+        <a href="delete?id=<%= u.getId() %>">Delete</a>
+    </td>
+</tr>
+<% } %>
+</table>
+</body>
+</html>

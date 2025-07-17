@@ -1,0 +1,18 @@
+package com.crud;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.util.*;
+
+public class ListServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        try {
+            List<User> list = UserDAO.getAllUsers();
+            req.setAttribute("userList", list);
+            RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+            rd.forward(req, res);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

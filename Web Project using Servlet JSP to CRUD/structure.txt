@@ -1,0 +1,17 @@
+SimpleCRUD/
+├── WebContent/
+│   ├── index.jsp
+│   ├── add.jsp
+│   ├── edit.jsp
+│   └── WEB-INF/
+│       └── web.xml
+├── src/
+│   └── com.crud/
+│       ├── DBUtil.java
+│       ├── User.java
+│       ├── UserDAO.java
+│       ├── AddServlet.java
+│       ├── EditServlet.java
+│       ├── DeleteServlet.java
+│       └── ListServlet.java
+└── database.sql
